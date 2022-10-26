@@ -1,0 +1,20 @@
+.main {
+  max-width: 880px;
+  margin: 0 auto 66px auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 880px) {
+  .main {
+    padding-left: 19px;
+    padding-right: 19px;
+    transition-property: padding-right, padding-left;
+    transition-duration: 1s;
+  }
+}
+
+@media (max-width: 450px) {
+  .main {
+    margin-bottom: 48px;
+  }
+}

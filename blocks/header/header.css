@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  max-width: 880px;
+  min-height: 74px;
+  margin: 0 auto 40px auto;
+  border-bottom: 1px solid #545454;
+  opacity: .7;
+}
+
+@media (max-width: 600px) {
+  .header {
+    margin-bottom: 42px;
+  }
+}

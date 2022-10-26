@@ -7,14 +7,89 @@
   <meta name=" description" content="Mesto: добавляйте фотографии, удаляйте их и ставьте лайки">
   <meta name="keywords" content="фотографии, интересные места, фотогалерея">
   <meta name="author" content="Дениc">
-  <title>Mesto</title>
+  <title>Mesto Russia</title>
   <link rel="stylesheet" href="pages/index.css">
 </head>
 
 <body class="body">
-  <header class="header"></header>
-  <main class="main"></main>
-  <footer class="footer"></footer>
+  <header class="header">
+    <div class="header__logo"></div>
+  </header>
+  <main class="main">
+    <section class="profile">
+      <img src="images/profile-avatar.jpg" alt="Аватар" class="profile__avatar">
+      <div class="profile__info">
+        <h1 class="profile__title">Жак-Ив Кусто</h1>
+        <button class="profile__button-edit opacity"></button>
+        <p class="profile__subtitle">Исследователь океана</p>
+      </div>
+      <button class="profile__button-add opacity"></button>
+    </section>
+    <section class="elements">
+      <ul class="elements__list">
+        <li class="element">
+          <img src="images/photo-grid-karachaevo-1.jpg" alt="Карачаевск" class="element__photo">
+          <div class="element__bottom-part">
+            <h2 class="element__title">Карачаевск</h2>
+            <img src="images/icon-like-disabled.svg" alt="Лайк" class="element__like">
+          </div>
+        </li>
+        <li class="element">
+          <img src="images/photo-grid-elbrus-1.jpg" alt="Эльбрус" class="element__photo">
+          <div class="element__bottom-part">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <img src="images/icon-like-disabled.svg" alt="Лайк" class="element__like">
+          </div>
+        </li>
+        <li class="element">
+          <img src="images/photo-grid-dombay-1.jpg" alt="Домбай" class="element__photo">
+          <div class="element__bottom-part">
+            <h2 class="element__title">Домбай</h2>
+            <img src="images/icon-like-disabled.svg" alt="Лайк" class="element__like">
+          </div>
+        </li>
+        <li class="element">
+          <img src="images/photo-grid-elbrus-2.jpg" alt="гора Эльбрус" class="element__photo">
+          <div class="element__bottom-part">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <img src="images/icon-like-disabled.svg" alt="Лайк" class="element__like">
+          </div>
+        </li>
+        <li class="element">
+          <img src="images/photo-grid-dombay-2.jpg" alt="фото Домбай" class="element__photo">
+          <div class="element__bottom-part">
+            <h2 class="element__title">Домбай</h2>
+            <img src="images/icon-like-disabled.svg" alt="Лайк" class="element__like">
+          </div>
+        </li>
+        <li class="element">
+          <img src="images/photo-grid-karachaevo-2.jpg" alt="Карачаево-Черкесск" class="element__photo">
+          <div class="element__bottom-part">
+            <h2 class="element__title">Карачаево-Черкесск</h2>
+            <img src="images/icon-like-disabled.svg" alt="Лайк" class="element__like">
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy;&nbsp;2020 Mesto Russia</p>
+  </footer>
+
+  <div class="popup">
+    <form class="popup__container">
+      <img src="images/icon-close.svg" class="popup__button-close opacity" alt="Закрыть">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <fieldset class="popup__input-set">
+        <input type="text" id="username" class="popup__input" name="name" value="Жак-Ив Кусто" placeholder="Имя">
+        <input type="text" id="userjob" class="popup__input" name="job" value="Исследователь океана"
+          placeholder="О себе">
+      </fieldset>
+      <button type="submit" class="popup__button-submit">Сохранить</button>
+    </form>
+  </div>
+
+  <script src="pages/index.js"></script>
 </body>
 
 </html>
