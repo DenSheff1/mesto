@@ -1,9 +1,0 @@
-.element__like {
-  cursor: pointer;
-  opacity: 1;
-  transition: opacity .5s;
-}
-
-.element__like:hover {
-  opacity: .5;
-}

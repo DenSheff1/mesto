@@ -8,7 +8,7 @@
 
 @media (max-width: 600px) {
   .profile__info {
-    margin-bottom: 36px;
+    margin-bottom: 32px;
   }
 }
 
@@ -16,5 +16,6 @@
   .profile__info {
     grid-template-columns: minmax(189px, max-content) minmax(18px, 1fr);
     column-gap: 10px;
+    margin-left: 22px;
   }
 }

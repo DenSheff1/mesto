@@ -10,7 +10,7 @@
   .profile {
     justify-items: center;
     grid-template-columns: 1fr;
-    margin-bottom: 36px;
+    margin-bottom: 34px;
     transition-property: margin-bottom;
     transition-duration: 1s;
   }

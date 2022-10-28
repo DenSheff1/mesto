@@ -2,6 +2,7 @@
   width: 142px;
   height: 33px;
   background-image: url(../../../images/header-logo.svg);
+  background-size: cover;
 }
 
 @media (max-width: 880px) {
@@ -9,5 +10,12 @@
     margin-left: 27px;
     transition-property: margin-left;
     transition-duration: 1s;
+  }
+}
+
+@media (max-width: 420px) {
+  .header__logo {
+    width: 104px;
+    height: 24px;
   }
 }

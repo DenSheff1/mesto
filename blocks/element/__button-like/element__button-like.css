@@ -1,0 +1,14 @@
+.element__button-like {
+  width: 22px;
+  height: 19px;
+  background: transparent url(../../../images/icon-like-disabled.svg) no-repeat center center;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity .5s;
+}
+
+.element__button-like:hover {
+  opacity: .5;
+}

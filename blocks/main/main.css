@@ -1,6 +1,6 @@
 .main {
   max-width: 880px;
-  margin: 0 auto 66px auto;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
@@ -13,8 +13,3 @@
   }
 }
 
-@media (max-width: 450px) {
-  .main {
-    margin-bottom: 48px;
-  }
-}
