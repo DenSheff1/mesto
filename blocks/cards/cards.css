@@ -1,9 +1,9 @@
-.elements {
+.cards {
   margin-bottom: 66px;
 }
 
 @media (max-width: 420px) {
-  .elements {
+  .cards {
     margin-bottom: 48px;
   }
 }

@@ -25,68 +25,18 @@
       </div>
       <button class="profile__button-add opacity" type="button"></button>
     </section>
-    <section class="elements" aria-label="Места в России">
-      <ul class="elements__list">
-        <li class="element">
-          <article class="article">
-            <img src="images/photo-grid-karachaevo-1.jpg" alt="Карачаевск" class="element__photo">
-            <div class="element__bottom-part">
-              <h2 class="element__title">Карачаевск</h2>
-              <button class="element__button-like" type="button"></button>
-            </div>
-          </article>
-        </li>
-        <li class="element">
-          <article class="article">
-            <img src="images/photo-grid-elbrus-1.jpg" alt="Эльбрус" class="element__photo">
-            <div class="element__bottom-part">
-              <h2 class="element__title">Гора Эльбрус</h2>
-              <button class="element__button-like" type="button"></button>
-            </div>
-          </article>
-        </li>
-        <li class="element">
-          <article class="article">
-            <img src="images/photo-grid-dombay-1.jpg" alt="Домбай" class="element__photo">
-            <div class="element__bottom-part">
-              <h2 class="element__title">Домбай</h2>
-              <button class="element__button-like" type="button"></button>
-            </div>
-          </article>
-        </li>
-        <li class="element">
-          <article class="article">
-            <img src="images/photo-grid-elbrus-2.jpg" alt="гора Эльбрус" class="element__photo">
-            <div class="element__bottom-part">
-              <h2 class="element__title">Гора Эльбрус</h2>
-              <button class="element__button-like" type="button"></button>
-            </div>
-          </article>
-        </li>
-        <li class="element">
-          <article class="article">
-            <img src="images/photo-grid-dombay-2.jpg" alt="фото Домбай" class="element__photo">
-            <div class="element__bottom-part">
-              <h2 class="element__title">Домбай</h2>
-              <button class="element__button-like" type="button"></button>
-            </div>
-          </article>
-        </li>
-        <li class="element">
-          <article class="article">
-            <img src="images/photo-grid-karachaevo-2.jpg" alt="Карачаево-Черкесск" class="element__photo">
-            <div class="element__bottom-part">
-              <h2 class="element__title">Карачаево-Черкесск</h2>
-              <button class="element__button-like" type="button"></button>
-            </div>
-          </article>
-        </li>
+    <section class="cards" aria-label="Места в России">
+      <ul class="cards__list">
+
       </ul>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy;&nbsp;2020 Mesto Russia</p>
   </footer>
+
+
+
   <div class="popup">
     <div class="popup__container">
       <button class="popup__button-close opacity" type="button"></button>
@@ -100,7 +50,27 @@
       </form>
     </div>
   </div>
+
+
+
+
   <script src="scripts/index.js"></script>
+
+  <template id="card-template">
+    <li class="card">
+      <article class="article">
+        <img class="card__photo">
+        <div class="card__footer">
+          <h3 class="card__title"></h3>
+          <button class="card__button card__button_type_like" type="button"></button>
+        </div>
+      </article>
+    </li>
+  </template>
+
+
+
+
 </body>
 
 </html>

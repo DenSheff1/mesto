@@ -1,4 +1,4 @@
-.element__button-like {
+.card__button {
   width: 22px;
   height: 19px;
   background: transparent url(../../../images/icon-like-disabled.svg) no-repeat center center;
@@ -9,6 +9,6 @@
   transition: opacity .5s;
 }
 
-.element__button-like:hover {
+.card__button:hover {
   opacity: .5;
 }

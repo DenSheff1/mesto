@@ -24,13 +24,13 @@
 @import url(../blocks/article/article.css);
 
 /* Elements */
-@import url(../blocks/elements/elements.css);
-@import url(../blocks/elements/__list/elements__list.css);
-@import url(../blocks/element/element.css);
-@import url(../blocks/element/__photo/element__photo.css);
-@import url(../blocks/element/__bottom-part/element__bottom-part.css);
-@import url(../blocks/element/__title/element__title.css);
-@import url(../blocks/element/__button-like/element__button-like.css);
+@import url(../blocks/cards/cards.css);
+@import url(../blocks/cards/__list/cards__list.css);
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__photo/card__photo.css);
+@import url(../blocks/card/__footer/card__footer.css);
+@import url(../blocks/card/__title/card__title.css);
+@import url(../blocks/card/__button/card__button.css);
 
 /* Footer */
 @import url(../blocks/footer/footer.css);
