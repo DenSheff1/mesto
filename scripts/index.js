@@ -29,8 +29,25 @@ const initialCards = [
 // переменные, которые потребуются для генерации карточек
 const cardContainer = document.querySelector('.cards__list');
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
+const bigPhotoItself = document.querySelector('.popup__big-photo');
+const bigPhotoCaption = document.querySelector('.popup__caption');
 
-//создаем карточки
+//создание карточек и взаимодействие с ними
+const handleDeleteCard = (event) => {
+  event.target.closest('.card').remove();
+}
+
+const handleLikeCard = (event) => {
+  event.target.closest('.card__button_type_like-disabled').classList.toggle('card__button_type_like-normal');
+}
+
+const handleBigPhoto = (event) => {
+  popupPhoto.classList.add('popup_opened');
+  bigPhotoItself.src = event.target.src;
+  bigPhotoItself.alt = event.target.alt;
+  bigPhotoCaption.textContent = event.target.alt;
+}
+
 const generateCard = (everyCardData) => {
   const instanceCard = cardTemplate.cloneNode(true);
 
@@ -40,6 +57,15 @@ const generateCard = (everyCardData) => {
   const cardPhoto = instanceCard.querySelector('.card__photo');
   cardPhoto.src = everyCardData.link;
   cardPhoto.alt = everyCardData.name;
+
+  const cardDeleteBtn = instanceCard.querySelector('.card__button_type_remove');
+  cardDeleteBtn.addEventListener('click', handleDeleteCard);
+
+  const cardLikeBtn = instanceCard.querySelector('.card__button_type_like-disabled');
+  cardLikeBtn.addEventListener('click', handleLikeCard);
+
+  const cardImg = instanceCard.querySelector('.card__photo');
+  cardImg.addEventListener('click', handleBigPhoto);
 
   return instanceCard;
 }
@@ -54,14 +80,20 @@ initialCards.forEach((everyCardData) => {
   renderCard(everyCardData);
 });
 
-//открытие и закрытие попапов
-const popupEdit = document.querySelector('.popup__edit-profile');
-const popupAdd = document.querySelector('.popup__add-card');
+//переменные для открытия и закрытия попапов:
+//редактирование данных профиля
 const btnEdit = document.querySelector('.profile__button-edit');
-const btnAdd = document.querySelector('.profile__button-add');
-const btnCloseAddCard = document.querySelector('.popup__button-close-add-card');
+const popupEdit = document.querySelector('.popup_type_edit-profile');
 const btnCloseEditProf = document.querySelector('.popup__button-close-edit-profile');
+//добавление карточек мест
+const btnAdd = document.querySelector('.profile__button-add');
+const popupAdd = document.querySelector('.popup_type_add-card');
+const btnCloseAddCard = document.querySelector('.popup__button-close-add-card');
+//увеличение фотографии
+const popupPhoto = document.querySelector('.popup_type_photo');
+const btnCloseBigPhoto = document.querySelector('.popup__button-close-big-photo');
 
+//открываем попапы
 function openPopup(popupElem) {
   popupElem.classList.add('popup_opened');
 };
@@ -78,6 +110,7 @@ btnAdd.addEventListener('click', function() {
   placeLink.value = '';
 });
 
+//закрываем попапы
 function closePopup(popupElem) {
   popupElem.classList.remove('popup_opened');
 };
@@ -88,6 +121,10 @@ btnCloseAddCard.addEventListener('click', function() {
 
 btnCloseEditProf.addEventListener('click', function() {
   closePopup(popupEdit);
+});
+
+btnCloseBigPhoto.addEventListener('click', function() {
+  closePopup(popupPhoto);
 });
 
 //работа с данными профиля пользователя в попапе
@@ -103,7 +140,6 @@ const handleSubmitProfileForm = (event) => {
     profileAbout.textContent = jobInput.value;
     closePopup(popupEdit);
 }
-
 formProfile.addEventListener('submit', handleSubmitProfileForm);
 
 //добавление карточек через попап
@@ -116,5 +152,4 @@ const handleSubmitAddCardForm = (event) => {
   renderCard({ name: placeName.value, link: placeLink.value });
   closePopup(popupAdd);
 }
-
 formAddCard.addEventListener('submit', handleSubmitAddCardForm);

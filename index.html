@@ -33,7 +33,7 @@
   <footer class="footer">
     <p class="footer__copyright">&copy;&nbsp;2022 Mesto Russia</p>
   </footer>
-  <div class="popup popup__add-card">
+  <div class="popup popup_type_add-card">
     <div class="popup__container">
       <button class="popup__button-close popup__button-close-add-card opacity" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
@@ -46,7 +46,7 @@
       </form>
     </div>
   </div>
-  <div class="popup popup__edit-profile">
+  <div class="popup popup_type_edit-profile">
     <div class="popup__container">
       <button class="popup__button-close popup__button-close-edit-profile opacity" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
@@ -59,6 +59,13 @@
       </form>
     </div>
   </div>
+  <div class="popup popup_type_photo">
+    <figure class="popup__container popup__container_type_photo">
+      <button class="popup__button-close popup__button-close-big-photo opacity" type="button"></button>
+      <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" class="popup__big-photo">
+      <figcaption class="popup__caption">Test</figcaption>
+    </figure>
+  </div>
   <script src="scripts/index.js" defer></script>
   <template id="card-template">
     <li class="card">
@@ -67,7 +74,7 @@
         <img class="card__photo">
         <div class="card__footer">
           <h3 class="card__title"></h3>
-          <button class="card__button card__button_type_like" type="button"></button>
+          <button class="card__button card__button_type_like-disabled" type="button"></button>
         </div>
       </article>
     </li>

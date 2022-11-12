@@ -1,9 +1,9 @@
-.card__button_type_like {
+.card__button_type_like-disabled {
   width: 22px;
   height: 19px;
   background: transparent url(../../../../images/icon-like-disabled.svg) no-repeat center center;
 }
 
-.card__button_type_like:hover {
+.card__button_type_like-disabled:hover {
   opacity: .5;
 }

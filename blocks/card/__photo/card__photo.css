@@ -2,6 +2,7 @@
   height: calc(100% - 79px);
   width: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: top center;
   border-radius: 10px 10px 0 0;
+  cursor: pointer;
 }

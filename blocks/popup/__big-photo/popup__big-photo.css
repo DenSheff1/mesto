@@ -1,0 +1,6 @@
+.popup__big-photo {
+  object-fit: cover;
+  object-position: top center;
+  max-width: 75vw;
+  max-height: 75vh;
+}
