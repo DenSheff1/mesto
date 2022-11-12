@@ -1,36 +1,28 @@
-//данные для карточек
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-// переменные, которые потребуются для генерации карточек
+// константы для генерации карточек
 const cardContainer = document.querySelector('.cards__list');
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
 const bigPhotoItself = document.querySelector('.popup__big-photo');
 const bigPhotoCaption = document.querySelector('.popup__caption');
+
+//константы для попапов:
+//редактирование данных профиля
+const btnEdit = document.querySelector('.profile__button-edit');
+const popupEdit = document.querySelector('.popup_type_edit-profile');
+const btnCloseEditProf = document.querySelector('.popup__button-close-edit-profile');
+//добавление карточек мест
+const btnAdd = document.querySelector('.profile__button-add');
+const popupAdd = document.querySelector('.popup_type_add-card');
+const btnCloseAddCard = document.querySelector('.popup__button-close-add-card');
+//увеличение фотографии
+const popupPhoto = document.querySelector('.popup_type_photo');
+const btnCloseBigPhoto = document.querySelector('.popup__button-close-big-photo');
+
+//константы для работы с данными профиля пользователя в попапе
+const formProfile = document.querySelector('.popup__form-userinfo');
+const profileName = document.querySelector('.profile__title');
+const profileAbout = document.querySelector('.profile__subtitle');
+const nameInput = document.querySelector('.popup__input_userinfo_name');
+const jobInput = document.querySelector('.popup__input_userinfo_job');
 
 //создание карточек и взаимодействие с ними
 const handleDeleteCard = (event) => {
@@ -42,7 +34,7 @@ const handleLikeCard = (event) => {
 }
 
 const handleBigPhoto = (event) => {
-  popupPhoto.classList.add('popup_opened');
+  openPopup(popupPhoto);
   bigPhotoItself.src = event.target.src;
   bigPhotoItself.alt = event.target.alt;
   bigPhotoCaption.textContent = event.target.alt;
@@ -80,19 +72,6 @@ initialCards.forEach((everyCardData) => {
   renderCard(everyCardData);
 });
 
-//переменные для открытия и закрытия попапов:
-//редактирование данных профиля
-const btnEdit = document.querySelector('.profile__button-edit');
-const popupEdit = document.querySelector('.popup_type_edit-profile');
-const btnCloseEditProf = document.querySelector('.popup__button-close-edit-profile');
-//добавление карточек мест
-const btnAdd = document.querySelector('.profile__button-add');
-const popupAdd = document.querySelector('.popup_type_add-card');
-const btnCloseAddCard = document.querySelector('.popup__button-close-add-card');
-//увеличение фотографии
-const popupPhoto = document.querySelector('.popup_type_photo');
-const btnCloseBigPhoto = document.querySelector('.popup__button-close-big-photo');
-
 //открываем попапы
 function openPopup(popupElem) {
   popupElem.classList.add('popup_opened');
@@ -127,13 +106,7 @@ btnCloseBigPhoto.addEventListener('click', function() {
   closePopup(popupPhoto);
 });
 
-//работа с данными профиля пользователя в попапе
-const formProfile = document.querySelector('.popup__form-userinfo');
-const profileName = document.querySelector('.profile__title');
-const profileAbout = document.querySelector('.profile__subtitle');
-const nameInput = document.querySelector('.popup__input_userinfo_name');
-const jobInput = document.querySelector('.popup__input_userinfo_job');
-
+//редактирование данных профиля
 const handleSubmitProfileForm = (event) => {
     event.preventDefault();
     profileName.textContent = nameInput.value;
