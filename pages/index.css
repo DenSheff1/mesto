@@ -23,7 +23,7 @@
 /* Article */
 @import url(../blocks/article/article.css);
 
-/* Elements */
+/* Cards */
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/cards/__list/cards__list.css);
 @import url(../blocks/card/card.css);
@@ -31,6 +31,8 @@
 @import url(../blocks/card/__footer/card__footer.css);
 @import url(../blocks/card/__title/card__title.css);
 @import url(../blocks/card/__button/card__button.css);
+@import url(../blocks/card/__button/_type/card__button_type_like.css);
+@import url(../blocks/card/__button/_type/card__button_type_remove.css);
 
 /* Footer */
 @import url(../blocks/footer/footer.css);

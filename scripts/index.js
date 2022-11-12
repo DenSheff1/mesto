@@ -74,6 +74,8 @@ btnEdit.addEventListener('click', function() {
 
 btnAdd.addEventListener('click', function() {
   openPopup(popupAdd);
+  placeName.value = '';
+  placeLink.value = '';
 });
 
 function closePopup(popupElem) {
@@ -88,20 +90,31 @@ btnCloseEditProf.addEventListener('click', function() {
   closePopup(popupEdit);
 });
 
-//работа с данными пользователя в профиле
+//работа с данными профиля пользователя в попапе
 const formProfile = document.querySelector('.popup__form-userinfo');
 const profileName = document.querySelector('.profile__title');
 const profileAbout = document.querySelector('.profile__subtitle');
 const nameInput = document.querySelector('.popup__input_userinfo_name');
 const jobInput = document.querySelector('.popup__input_userinfo_job');
 
-function formProfileSubmitHandler (evt) {
-    evt.preventDefault();
+const handleSubmitProfileForm = (event) => {
+    event.preventDefault();
     profileName.textContent = nameInput.value;
     profileAbout.textContent = jobInput.value;
     closePopup(popupEdit);
 }
 
-formProfile.addEventListener('submit', formProfileSubmitHandler);
+formProfile.addEventListener('submit', handleSubmitProfileForm);
 
+//добавление карточек через попап
+const formAddCard = document.querySelector('.popup__form-newplace');
+const placeName = document.querySelector('.popup__input_place_name');
+const placeLink = document.querySelector('.popup__input_place_link');
 
+const handleSubmitAddCardForm = (event) => {
+  event.preventDefault();
+  renderCard({ name: placeName.value, link: placeLink.value });
+  closePopup(popupAdd);
+}
+
+formAddCard.addEventListener('submit', handleSubmitAddCardForm);

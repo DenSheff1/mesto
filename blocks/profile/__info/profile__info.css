@@ -1,7 +1,7 @@
 .profile__info {
   max-width: 550px;
   display: grid;
-  grid-template-columns: minmax(189px, max-content) minmax(24px, 1fr);
+  grid-template-columns: minmax(30px, max-content) minmax(24px, 1fr);
   column-gap: 18px;
   row-gap: 8px;
 }
@@ -14,7 +14,7 @@
 
 @media (max-width: 450px) {
   .profile__info {
-    grid-template-columns: minmax(189px, max-content) minmax(18px, 1fr);
+    grid-template-columns: minmax(30px, max-content) minmax(18px, 1fr);
     column-gap: 10px;
     margin-left: 22px;
   }

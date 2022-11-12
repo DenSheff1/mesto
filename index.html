@@ -31,24 +31,21 @@
     </section>
   </main>
   <footer class="footer">
-    <p class="footer__copyright">&copy;&nbsp;2020 Mesto Russia</p>
+    <p class="footer__copyright">&copy;&nbsp;2022 Mesto Russia</p>
   </footer>
-
   <div class="popup popup__add-card">
     <div class="popup__container">
       <button class="popup__button-close popup__button-close-add-card opacity" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__form-newplace" name="newplace">
         <fieldset class="popup__input-set">
-          <input type="text" class="popup__input popup__input_place_name" name="name" value="" placeholder="Название">
-          <input type="text" class="popup__input popup__input_place_link" name="link" value=""
-            placeholder="Ссылка на картинку">
+          <input type="text" class="popup__input popup__input_place_name" name="placename" placeholder="Название">
+          <input type="text" class="popup__input popup__input_place_link" name="link" placeholder="Ссылка на картинку">
         </fieldset>
         <button type="submit" class="popup__button-submit">Сохранить</button>
       </form>
     </div>
   </div>
-
   <div class="popup popup__edit-profile">
     <div class="popup__container">
       <button class="popup__button-close popup__button-close-edit-profile opacity" type="button"></button>
@@ -62,10 +59,10 @@
       </form>
     </div>
   </div>
-
   <script src="scripts/index.js" defer></script>
   <template id="card-template">
     <li class="card">
+      <button class="card__button card__button_type_remove opacity" type="button"></button>
       <article class="article">
         <img class="card__photo">
         <div class="card__footer">

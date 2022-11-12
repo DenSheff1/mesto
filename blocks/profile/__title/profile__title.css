@@ -8,11 +8,13 @@
   line-height: 114%;
   align-self: end;
   text-rendering: optimizeLegibility;
+  min-height: 47px;
 }
 
 @media (max-width: 450px) {
   .profile__title {
     font-size: 27px;
     line-height: 33px;
+    min-height: 33px;
   }
 }

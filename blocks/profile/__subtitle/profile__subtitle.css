@@ -7,6 +7,7 @@
   font-size: 18px;
   line-height: 22px;
   text-rendering: optimizeLegibility;
+  min-height: 22px;
 }
 
 @media (max-width: 600px) {
@@ -19,5 +20,6 @@
   .profile__subtitle {
     font-size: 14px;
     line-height: 17px;
+    min-height: 17px;
   }
 }
