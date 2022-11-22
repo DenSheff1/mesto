@@ -4,7 +4,7 @@ const cardTemplate = document.querySelector('#card-template').content.querySelec
 const bigPhotoItself = document.querySelector('.popup__big-photo');
 const bigPhotoCaption = document.querySelector('.popup__caption');
 
-//константы для попапов:
+//константы для попапов
 //редактирование данных профиля
 const btnEdit = document.querySelector('.profile__button-edit');
 const popupEdit = document.querySelector('.popup_type_edit-profile');
@@ -23,6 +23,11 @@ const profileName = document.querySelector('.profile__title');
 const profileAbout = document.querySelector('.profile__subtitle');
 const nameInput = document.querySelector('.popup__input_userinfo_name');
 const jobInput = document.querySelector('.popup__input_userinfo_job');
+
+//добавление карточек через попап
+const formAddCard = document.querySelector('.popup__form-newplace');
+const placeName = document.querySelector('.popup__input_place_name');
+const placeLink = document.querySelector('.popup__input_place_link');
 
 //создание карточек и взаимодействие с ними
 const handleDeleteCard = (event) => {
@@ -81,6 +86,7 @@ btnEdit.addEventListener('click', function() {
   openPopup(popupEdit);
   nameInput.value = profileName.textContent;
   jobInput.value = profileAbout.textContent;
+  setSubmitButtonState(true);
 });
 
 btnAdd.addEventListener('click', function() {
@@ -106,6 +112,15 @@ btnCloseBigPhoto.addEventListener('click', function() {
   closePopup(popupPhoto);
 });
 
+// закрываем попапы кнопкой Esc
+document.addEventListener('keydown', function (evt) {
+  if (evt.key === 'Escape') {
+    closePopup(popupAdd);
+    closePopup(popupEdit);
+    closePopup(popupPhoto);
+  };
+});
+
 //редактирование данных профиля
 const handleSubmitProfileForm = (event) => {
     event.preventDefault();
@@ -115,11 +130,7 @@ const handleSubmitProfileForm = (event) => {
 }
 formProfile.addEventListener('submit', handleSubmitProfileForm);
 
-//добавление карточек через попап
-const formAddCard = document.querySelector('.popup__form-newplace');
-const placeName = document.querySelector('.popup__input_place_name');
-const placeLink = document.querySelector('.popup__input_place_link');
-
+//добавление карточек
 const handleSubmitAddCardForm = (event) => {
   event.preventDefault();
   renderCard({ name: placeName.value, link: placeLink.value });

@@ -37,25 +37,30 @@
     <div class="popup__container">
       <button class="popup__button-close popup__button-close-add-card opacity" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form-newplace" name="newplace">
+      <form class="popup__form-newplace" name="newplace" novalidate>
         <fieldset class="popup__input-set">
-          <input type="text" class="popup__input popup__input_place_name" name="placename" placeholder="Название">
-          <input type="text" class="popup__input popup__input_place_link" name="link" placeholder="Ссылка на картинку">
+          <input type="text" class="popup__input popup__input_place_name" name="placename" placeholder="Название"
+            required minlength="2" maxlength="30">
+          <input type="url" class="popup__input popup__input_place_link" name="link" placeholder="Ссылка на картинку"
+            required>
         </fieldset>
-        <button type="submit" class="popup__button-submit">Сохранить</button>
+        <button type="submit" class="popup__button-submit popup__button-submit_type_add">Сохранить</button>
       </form>
     </div>
   </div>
+
   <div class="popup popup_type_edit-profile">
     <div class="popup__container">
       <button class="popup__button-close popup__button-close-edit-profile opacity" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form-userinfo" name="userinfo">
+      <form class="popup__form-userinfo" name="userinfo" novalidate>
         <fieldset class="popup__input-set">
-          <input type="text" class="popup__input popup__input_userinfo_name" name="name" value="" placeholder="Имя">
-          <input type="text" class="popup__input popup__input_userinfo_job" name="job" value="" placeholder="О себе">
+          <input type="text" class="popup__input popup__input_userinfo_name" name="name" value="" placeholder="Имя"
+            required minlength="2" maxlength="40">
+          <input type="text" class="popup__input popup__input_userinfo_job" name="job" value="" placeholder="О себе"
+            required minlength="2" maxlength="200">
         </fieldset>
-        <button type="submit" class="popup__button-submit">Сохранить</button>
+        <button type="submit" class="popup__button-submit popup__button-submit_type_edit">Сохранить</button>
       </form>
     </div>
   </div>
@@ -66,8 +71,9 @@
       <figcaption class="popup__caption">Test</figcaption>
     </figure>
   </div>
-  <script src="scripts/data.js" defer></script>
+  <script src="scripts/initData.js" defer></script>
   <script src="scripts/index.js" defer></script>
+  <script src="scripts/validate.js" defer></script>
   <template id="card-template">
     <li class="card">
       <button class="card__button card__button_type_remove opacity" type="button"></button>
