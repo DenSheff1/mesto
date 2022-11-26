@@ -33,45 +33,41 @@
   <footer class="footer">
     <p class="footer__copyright">&copy;&nbsp;2022 Mesto Russia</p>
   </footer>
-
-
   <div class="popup popup_type_edit-profile">
     <div class="popup__container">
       <button class="popup__button-close popup__button-close-edit-profile opacity" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form-userinfo" name="userinfo" novalidate>
+      <form class="popup__form popup__form-userinfo" name="userinfo" novalidate>
         <fieldset class="popup__input-set">
           <input id="profile-name-input" type="text" class="popup__input popup__input_userinfo_name" name="name"
             value="" placeholder="Имя" required minlength="2" maxlength="40">
-          <span class="profile-name-input-error form_input-message-error"></span>
+          <span class="profile-name-input-error popup__input-message-error"></span>
           <input id="profile-job-input" type="text" class="popup__input popup__input_userinfo_job" name="job" value=""
             placeholder="О себе" required minlength="2" maxlength="200">
-          <span class="profile-job-input-error form_input-message-error"></span>
+          <span class="profile-job-input-error popup__input-message-error"></span>
         </fieldset>
         <button type="submit" class="popup__button-submit popup__button-submit_type_edit">Сохранить</button>
       </form>
     </div>
   </div>
-
   <div class="popup popup_type_add-card">
     <div class="popup__container">
       <button class="popup__button-close popup__button-close-add-card opacity" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form-newplace" name="newplace" novalidate>
+      <form class="popup__form popup__form-newplace" name="newplace" novalidate>
         <fieldset class="popup__input-set">
-          <input type="text" class="popup__input popup__input_place_name" name="placename" placeholder="Название"
-            required minlength="2" maxlength="30">
-          <input type="url" class="popup__input popup__input_place_link" name="link" placeholder="Ссылка на картинку"
-            required>
+          <input id="place-name-input" type="text" class="popup__input popup__input_place_name" name="placename"
+            placeholder="Название" required minlength="2" maxlength="30">
+          <span class="place-name-input-error popup__input-message-error"></span>
+          <input id="place-link-input" type="url" class="popup__input popup__input_place_link" name="link"
+            placeholder="Ссылка на картинку" required>
+          <span class="place-link-input-error popup__input-message-error"></span>
         </fieldset>
         <button type="submit" disabled
           class="popup__button-submit popup__button-submit_type_add popup__button-submit_disabled">Сохранить</button>
       </form>
     </div>
   </div>
-
-
-
   <div class="popup popup_type_photo">
     <figure class="popup__container popup__container_type_photo">
       <button class="popup__button-close popup__button-close-big-photo opacity" type="button"></button>
@@ -79,11 +75,9 @@
       <figcaption class="popup__caption">Test</figcaption>
     </figure>
   </div>
-
   <script src="scripts/initData.js" defer></script>
   <script src="scripts/index.js" defer></script>
   <script src="scripts/validate.js" defer></script>
-
   <template id="card-template">
     <li class="card">
       <button class="card__button card__button_type_remove opacity" type="button"></button>

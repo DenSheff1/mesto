@@ -29,6 +29,9 @@ const formAddCard = document.querySelector('.popup__form-newplace');
 const placeName = document.querySelector('.popup__input_place_name');
 const placeLink = document.querySelector('.popup__input_place_link');
 
+//все попапы
+const allPopups = document.querySelectorAll('.popup');
+
 //создание карточек и взаимодействие с ними
 const handleDeleteCard = (event) => {
   event.target.closest('.card').remove();
@@ -86,7 +89,6 @@ btnEdit.addEventListener('click', function() {
   openPopup(popupEdit);
   nameInput.value = profileName.textContent;
   jobInput.value = profileAbout.textContent;
-  setSubmitButtonState(true);
 });
 
 btnAdd.addEventListener('click', function() {
@@ -113,12 +115,24 @@ btnCloseBigPhoto.addEventListener('click', function() {
 });
 
 // закрываем попапы кнопкой Esc
-document.addEventListener('keydown', function (evt) {
-  if (evt.key === 'Escape') {
+document.addEventListener('keydown', function keyClose(event) {
+  if (event.key === 'Escape') {
     closePopup(popupAdd);
     closePopup(popupEdit);
     closePopup(popupPhoto);
+    document.removeEventListener('keyup', keyClose);
   };
+});
+
+// закрываем попапы кликом по оверлею
+allPopups.forEach((element) => {
+  element.addEventListener("click", (event) => {
+    if (event.target === event.currentTarget) {
+      closePopup(popupAdd);
+      closePopup(popupEdit);
+      closePopup(popupPhoto);
+    }
+  });
 });
 
 //редактирование данных профиля
