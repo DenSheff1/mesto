@@ -57,8 +57,9 @@
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form-userinfo" name="userinfo" novalidate>
         <fieldset class="popup__input-set">
-          <input type="text" class="popup__input popup__input_userinfo_name" name="name" value="" placeholder="Имя"
-            required minlength="2" maxlength="40">
+          <input id="profile-name-input" type="text" class="popup__input popup__input_userinfo_name" name="name"
+            value="" placeholder="Имя" required minlength="2" maxlength="40">
+          <span class="profile-name-input-error form_input-message-error"></span>
           <input type="text" class="popup__input popup__input_userinfo_job" name="job" value="" placeholder="О себе"
             required minlength="2" maxlength="200">
         </fieldset>
