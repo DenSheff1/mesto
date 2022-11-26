@@ -1,30 +1,41 @@
-const formElement = document.querySelector('.popup__form-userinfo');
-const formInput = formElement.querySelector('.popup__input_userinfo_name');
-const formError = formElement.querySelector(`.${formInput.id}-error`);
-
-const showInputError = (elem, errMessage) => {
-  elem.classList.add('popup__input_type_error');
-  formError.textContent = errMessage;
-  formError.classList.add('form_input-message-error_active');
+const showInputError = (formElement, inputElement, errMessage) => {
+  const errElement = formElement.querySelector(`.${inputElement.id}-error`)
+  inputElement.classList.add('popup__input_type_error');
+  errElement.textContent = errMessage;
+  errElement.classList.add('form_input-message-error_active');
 };
 
-const hideInputError = (elem) => {
-  elem.classList.remove('popup__input_type_error');
-  formError.classList.remove('form_input-message-error_active');
-  formError.textContent = '';
+const hideInputError = (formElement, inputElement) => {
+  const errElement = formElement.querySelector(`.${inputElement.id}-error`)
+  inputElement.classList.remove('popup__input_type_error');
+  errElement.classList.remove('form_input-message-error_active');
+  errElement.textContent = '';
 };
 
-const isValid = () => {
-  if(!formInput.validity.valid) {
-    showInputError(formInput, formInput.validationMessage);
+const isValid = (formElement, inputElement) => {
+  if(!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
-    hideInputError(formInput);
+    hideInputError(formElement, inputElement);
   }
 };
 
-formInput.addEventListener('input', isValid);
+const setEventListener = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', function () {
+      isValid(formElement, inputElement);
+    });
+  });
+};
 
-
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll('.popup__form-userinfo'));
+  formList.forEach((formElement) => {
+    setEventListener(formElement);
+  });
+};
+enableValidation();
 
 
 
