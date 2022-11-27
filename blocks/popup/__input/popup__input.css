@@ -12,8 +12,8 @@
   line-height: 17px;
   font-family: inherit;
   display: block;
-
   padding: 0 0 5px 0;
+  margin: 0 0 5px 0;
 }
 
 .popup__input::-webkit-input-placeholder,
