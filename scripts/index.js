@@ -111,6 +111,12 @@ btnAdd.addEventListener('click', function() {
   openPopup(popupAdd);
   placeName.value = '';
   placeLink.value = '';
+  const btnAddSubmit = document.querySelector('.popup__button-submit_type_add');
+  if (placeName.value === '' || placeLink.value === '') {
+    btnAddSubmit.disabled = true;
+    btnAddSubmit.classList.add('popup__button-submit_disabled');
+  };
+
 });
 
 //закрытие попапов
