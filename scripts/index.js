@@ -1,5 +1,3 @@
-//*** Константы ***//
-//все попапы
 const allPopups = document.querySelectorAll('.popup');
 
 // константы для генерации карточек
@@ -11,9 +9,11 @@ const bigPhotoCaption = document.querySelector('.popup__caption');
 //редактирование данных профиля
 const btnEdit = document.querySelector('.profile__button-edit');
 const popupEdit = document.querySelector('.popup_type_edit-profile');
+
 //добавление карточек мест
 const btnAdd = document.querySelector('.profile__button-add');
 const popupAdd = document.querySelector('.popup_type_add-card');
+
 //увеличение фотографии
 const popupPhoto = document.querySelector('.popup_type_photo');
 
@@ -29,7 +29,6 @@ const formAddCard = document.querySelector('.popup__form-newplace');
 const placeName = document.querySelector('.popup__input_place_name');
 const placeLink = document.querySelector('.popup__input_place_link');
 
-//*** Функции ***//
 //создание карточек и взаимодействие с ними
 const handleDeleteCard = (event) => {
   event.target.closest('.card').remove();
@@ -112,11 +111,8 @@ btnAdd.addEventListener('click', function() {
   placeName.value = '';
   placeLink.value = '';
   const btnAddSubmit = document.querySelector('.popup__button-submit_type_add');
-  if (placeName.value === '' || placeLink.value === '') {
-    btnAddSubmit.disabled = true;
-    btnAddSubmit.classList.add('popup__button-submit_disabled');
-  };
-
+  btnAddSubmit.disabled = true;
+  btnAddSubmit.classList.add('popup__button-submit_disabled');
 });
 
 //закрытие попапов
@@ -141,3 +137,62 @@ allPopups.forEach((element) => {
     };
   });
 });
+
+//Универсальная валидация всех полей на всех формах
+const selectorList = {};
+
+const showInputError = (formElement, inputElement, errMessage, selectorList) => {
+  const errElement = formElement.querySelector(`.${inputElement.id}-error`)
+  inputElement.classList.add(selectorList.inputErrorClass);
+  errElement.textContent = errMessage;
+  errElement.classList.add(selectorList.errorClass);
+};
+
+const hideInputError = (formElement, inputElement, selectorList) => {
+  const errElement = formElement.querySelector(`.${inputElement.id}-error`)
+  inputElement.classList.remove(selectorList.inputErrorClass);
+  errElement.classList.remove(selectorList.errorClass);
+  errElement.textContent = '';
+};
+
+const isValid = (formElement, inputElement, selectorList) => {
+  if(!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage, selectorList);
+  } else {
+    hideInputError(formElement, inputElement, selectorList);
+  }
+};
+
+const setEventListener = (formElement, selectorList) => {
+  const inputList = Array.from(formElement.querySelectorAll(selectorList.inputSelector));
+  const buttonElement = formElement.querySelector(selectorList.submitButtonSelector);
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', function () {
+      isValid(formElement, inputElement, selectorList);
+      toggleButtonState(inputList, buttonElement, selectorList);
+    });
+  });
+};
+
+const enableValidation = (selectorList) => {
+  const formList = Array.from(document.querySelectorAll(selectorList.formSelector));
+  formList.forEach((formElement) => {
+    setEventListener(formElement, selectorList);
+  });
+};
+
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
+const toggleButtonState = (inputList, buttonElement, selectorList) => {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add(selectorList.inactiveButtonClass);
+    buttonElement.disabled = true;
+  } else {
+    buttonElement.classList.remove(selectorList.inactiveButtonClass);
+    buttonElement.disabled = false;
+  }
+};

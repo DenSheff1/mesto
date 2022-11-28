@@ -29,9 +29,3 @@
 .popup__input:focus {
   outline-color: #bcbcc4;
 }
-
-@media (max-width: 420px) {
-  .popup__input:last-of-type {
-    margin-bottom: 0;
-  }
-}
