@@ -2,6 +2,15 @@ import initialCards from "./data.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 
+const settings = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button-submit',
+  inactiveButtonClass: 'popup__button-submit_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-message-error_active'
+};
+
 const allPopups = document.querySelectorAll('.popup');
 const cardContainer = document.querySelector('.cards__list');
 const btnEdit = document.querySelector('.profile__button-edit');
@@ -16,15 +25,6 @@ const jobInput = document.querySelector('.popup__input_userinfo_job');
 const formAddCard = document.querySelector('.popup__form-newplace');
 const placeName = document.querySelector('.popup__input_place_name');
 const placeLink = document.querySelector('.popup__input_place_link');
-
-const settings = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button-submit',
-  inactiveButtonClass: 'popup__button-submit_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-message-error_active'
-};
 
 const handleSubmitProfileForm = (event) => {
   event.preventDefault();
