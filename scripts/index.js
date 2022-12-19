@@ -1,5 +1,6 @@
-import Card from "./Card.js";
 import initialCards from "./data.js";
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
 const allPopups = document.querySelectorAll('.popup');
 const cardContainer = document.querySelector('.cards__list');
@@ -16,14 +17,14 @@ const formAddCard = document.querySelector('.popup__form-newplace');
 const placeName = document.querySelector('.popup__input_place_name');
 const placeLink = document.querySelector('.popup__input_place_link');
 
-const renderCard = (everyCardData) => {
-  const card = new Card(everyCardData);
-  cardContainer.prepend(card.getView());
+const settings = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button-submit',
+  inactiveButtonClass: 'popup__button-submit_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-message-error_active'
 };
-
-initialCards.forEach((everyCardData) => {
-  renderCard(everyCardData);
-});
 
 const handleSubmitProfileForm = (event) => {
   event.preventDefault();
@@ -79,5 +80,22 @@ function closeByEsc(evt) {
     closePopup(openedPopup);
   }
 }
+
+//Карточки из класса
+const renderCard = (params) => {
+  const card = new Card(params);
+  cardContainer.prepend(card.getView());
+};
+
+initialCards.forEach((params) => {
+  renderCard(params);
+});
+
+//Валидация из класса
+const validationFormProfile = new FormValidator(settings, formProfile);
+validationFormProfile.enableValidation();
+
+const validationFormAddCard = new FormValidator(settings, formAddCard);
+validationFormAddCard.enableValidation();
 
 export default open;

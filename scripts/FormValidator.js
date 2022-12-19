@@ -1,3 +1,44 @@
+export default class FormValidator {
+  constructor(settings, form) {
+    this._formSelector = settings.formSelector;
+    this._inputSelector = settings.inputSelector;
+    this._submitButtonSelector = settings.submitButtonSelector;
+    this._inactiveButtonClass = settings.inactiveButtonClass;
+    this._inputErrorClass = settings.inputErrorClass;
+    this._errorClass = settings.errorClass;
+    this._form = form;
+  }
+
+  _showInputError() {
+
+  }
+
+  _hideInputError() {
+
+  }
+
+  _checkValidity() {
+
+  }
+
+  _setEventListeners() {
+
+  }
+
+  _hasInvalidInput() {
+
+  }
+
+  _toggleButtonState() {
+
+  }
+
+  enableValidation() {
+    console.log("test");
+  }
+
+}
+
 const showInputError = (formElement, inputElement, errMessage, selectorList) => {
   const errElement = formElement.querySelector(`.${inputElement.id}-error`)
   inputElement.classList.add(selectorList.inputErrorClass);

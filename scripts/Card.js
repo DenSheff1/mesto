@@ -1,6 +1,6 @@
 import open from "./index.js";
 
-class Card {
+export default class Card {
   constructor({ name, link }) {
     this._name = name;
     this._link = link;
@@ -65,5 +65,3 @@ class Card {
     return this._newCard;
   }
 }
-
-export default Card;
