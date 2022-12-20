@@ -1,5 +1,6 @@
 .content {
   max-width: 880px;
+  min-height: 65vh;
   margin: 0 auto;
   box-sizing: border-box;
 }

@@ -25,6 +25,9 @@ const jobInput = document.querySelector('.popup__input_userinfo_job');
 const formAddCard = document.querySelector('.popup__form-newplace');
 const placeName = document.querySelector('.popup__input_place_name');
 const placeLink = document.querySelector('.popup__input_place_link');
+const popupPhoto = document.querySelector('.popup_type_photo');
+const bigPhotoItself = document.querySelector('.popup__big-photo');
+const bigPhotoCaption = document.querySelector('.popup__caption');
 
 const handleSubmitProfileForm = (event) => {
   event.preventDefault();
@@ -42,18 +45,16 @@ const handleSubmitAddCardForm = (event) => {
 formAddCard.addEventListener('submit', handleSubmitAddCardForm);
 
 btnEdit.addEventListener('click', function() {
-  open(popupEdit);
   nameInput.value = profileName.textContent;
   jobInput.value = profileAbout.textContent;
+  open(popupEdit);
 });
 
 btnAdd.addEventListener('click', function() {
-  open(popupAdd);
   placeName.value = '';
   placeLink.value = '';
-  const btnAddSubmit = document.querySelector('.popup__button-submit_type_add');
-  btnAddSubmit.disabled = true;
-  btnAddSubmit.classList.add('popup__button-submit_disabled');
+  open(popupAdd);
+  validationFormAddCard.fixBtnState();
 });
 
 allPopups.forEach((element) => {
@@ -98,4 +99,5 @@ validationFormProfile.enableValidation();
 const validationFormAddCard = new FormValidator(settings, formAddCard);
 validationFormAddCard.enableValidation();
 
-export default open;
+//Экспорт
+export { open, popupPhoto, bigPhotoItself, bigPhotoCaption };
