@@ -1,5 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import Section from "../components/Section.js";
 import { initialCards } from "../utils/data.js";
 import {
   settings,
@@ -75,15 +76,7 @@ function closeByEsc(evt) {
   }
 }
 
-//Карточки из класса
-const renderCard = (params) => {
-  const card = new Card(params);
-  cardContainer.prepend(card.getView());
-};
 
-initialCards.forEach((params) => {
-  renderCard(params);
-});
 
 //Валидация из класса
 const validationFormProfile = new FormValidator(settings, formProfile);
@@ -91,6 +84,20 @@ validationFormProfile.enableValidation();
 
 const validationFormAddCard = new FormValidator(settings, formAddCard);
 validationFormAddCard.enableValidation();
+
+
+
+
+//Создание экземпляров карточек и их рендер в секции
+const generateCard = (params) => {
+  const newCard = new Card(params);
+  return newCard.getView();
+}
+
+const renderCards = new Section({ items: initialCards, renderer: (params) => {renderCards.addItem(generateCard(params))} }, cardContainer);
+
+renderCards.renderItems();
+
 
 //Экспорт
 export { open, popupPhoto, bigPhotoItself, bigPhotoCaption };
