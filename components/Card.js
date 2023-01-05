@@ -1,4 +1,4 @@
-import { open, popupPhoto, bigPhotoItself, bigPhotoCaption } from "./index.js";
+import { open, popupPhoto, bigPhotoItself, bigPhotoCaption } from "../pages/index.js";
 
 export default class Card {
   constructor({ name, link }) {
