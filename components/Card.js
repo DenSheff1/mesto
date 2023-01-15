@@ -1,30 +1,27 @@
-import { open, popupPhoto, bigPhotoItself, bigPhotoCaption } from "../pages/index.js";
-
 export default class Card {
-  constructor({ name, link }) {
+  constructor({ name, link }, handleCardClick) {
     this._name = name;
     this._link = link;
     this._newCard = this._getTemplate();
     this._likeBtn = this._newCard.querySelector('.card__button_type_like-disabled');
     this._deleteBtn = this._newCard.querySelector('.card__button_type_remove');
-    this._cardImg = this._newCard.querySelector('.card__photo');
+    this._cardPhoto = this._newCard.querySelector('.card__photo');
+    this._cardTitle = this._newCard.querySelector('.card__title');
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
     const card = document
-     .querySelector('#card-template')
-     .content.querySelector('.card')
-     .cloneNode(true);
-     return card;
+    .querySelector('#card-template')
+    .content.querySelector('.card')
+    .cloneNode(true);
+    return card;
   }
 
   _setData() {
-    const cardTitle = this._newCard.querySelector('.card__title');
-    cardTitle.textContent = this._name;
-
-    const cardPhoto = this._newCard.querySelector('.card__photo');
-    cardPhoto.src = this._link;
-    cardPhoto.alt = this._name;
+    this._cardTitle.textContent = this._name;
+    this._cardPhoto.src = this._link;
+    this._cardPhoto.alt = this._name;
   }
 
   _deleteCard() {
@@ -36,17 +33,10 @@ export default class Card {
     this._likeBtn.classList.toggle('card__button_type_like-normal');
   }
 
-  _enlargePhoto() {
-    bigPhotoItself.src = this._link;
-    bigPhotoItself.alt = this._name;
-    bigPhotoCaption.textContent = this._name;
-    open(popupPhoto);
-  }
-
   _setEventListeners() {
     this._deleteBtn.addEventListener('click', () => this._deleteCard());
     this._likeBtn.addEventListener('click', () => this._likeCard());
-    this._cardImg.addEventListener('click', () => this._enlargePhoto());
+    this._cardPhoto.addEventListener('click', () => this._handleCardClick(this._name, this._link));
   }
 
   getView() {

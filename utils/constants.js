@@ -1,21 +1,22 @@
-export const allPopups = document.querySelectorAll('.popup');
+//Cards container
 export const cardContainer = document.querySelector('.cards__list');
+//Buttons
 export const btnEdit = document.querySelector('.profile__button-edit');
-export const popupEdit = document.querySelector('.popup_type_edit-profile');
 export const btnAdd = document.querySelector('.profile__button-add');
-export const popupAdd = document.querySelector('.popup_type_add-card');
+//Forms
+export const formAddCard = document.querySelector('.popup__form-newplace');
 export const formProfile = document.querySelector('.popup__form-userinfo');
+//Texts
 export const profileName = document.querySelector('.profile__title');
 export const profileAbout = document.querySelector('.profile__subtitle');
+//Popups
+export const popupEdit = document.querySelector('.popup_type_edit-profile');
+export const popupPhoto = document.querySelector('.popup_type_photo');
+export const popupAdd = document.querySelector('.popup_type_add-card');
+//Inputs
 export const nameInput = document.querySelector('.popup__input_userinfo_name');
 export const jobInput = document.querySelector('.popup__input_userinfo_job');
-export const formAddCard = document.querySelector('.popup__form-newplace');
-export const placeName = document.querySelector('.popup__input_place_name');
-export const placeLink = document.querySelector('.popup__input_place_link');
-export const popupPhoto = document.querySelector('.popup_type_photo');
-export const bigPhotoItself = document.querySelector('.popup__big-photo');
-export const bigPhotoCaption = document.querySelector('.popup__caption');
-
+//Configuration for validation
 export const settings = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
