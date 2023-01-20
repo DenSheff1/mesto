@@ -1,7 +1,8 @@
 export default class Card {
-  constructor({ name, link }, handleCardClick) {
-    this._name = name;
-    this._link = link;
+  constructor(data, selector, handleCardClick) {
+    this._name = data.name;
+    this._link = data.link;
+    this._template = selector;
     this._newCard = this._getTemplate();
     this._likeBtn = this._newCard.querySelector('.card__button_type_like-disabled');
     this._deleteBtn = this._newCard.querySelector('.card__button_type_remove');
@@ -11,10 +12,7 @@ export default class Card {
   }
 
   _getTemplate() {
-    const card = document
-    .querySelector('#card-template')
-    .content.querySelector('.card')
-    .cloneNode(true);
+    const card = document.querySelector(this._template).content.querySelector('.card').cloneNode(true);
     return card;
   }
 

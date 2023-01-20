@@ -29,8 +29,8 @@ function handleCardClick(name, link) {
   imgPopup.open(name, link);
 }
 
-const generateCard = (params) => {
-  const newCard = new Card(params, handleCardClick);
+const generateCard = (data) => {
+  const newCard = new Card(data, '#card-template', handleCardClick);
   return newCard.getView();
 }
 
@@ -57,13 +57,13 @@ const userPopup = new PopupWithForm({
 });
 
 btnAdd.addEventListener('click', () => {
-  validationFormAddCard.fixBtnState();
+  validationFormAddCard.resetValidation();
   cardPopup.open();
 });
 
 btnEdit.addEventListener('click', () => {
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileAbout.textContent;
+  userPopup.setValues(userInfo.getUserInfo());
+  validationFormProfile.resetValidation();
   userPopup.open();
 })
 
